@@ -3,7 +3,7 @@
     <swiper :options="swiperOption">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class= "swipe-img" :src="item.imgUrl" alt="去哪儿门票" style="opacity: 1;">
+        <img class= "swipe-img" :src="item.imgUrl" alt="去哪儿门票" style="opacity: 1; width:100%">
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
