@@ -8,14 +8,17 @@
             请输入城市/游玩主题
         </div>
         <div class="header-right">
-            城市<span class="iconfont">&#xe749;</span>
+            {{city}}<span class="iconfont">&#xe749;</span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 

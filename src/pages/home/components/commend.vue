@@ -10,7 +10,7 @@
       </div>
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of commend" :key="item.id">
+      <li class="item border-bottom" v-for="item of commendlist" :key="item.id">
         <img class="item-img" :src="item.imgUrl" :alt="item.title">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -25,47 +25,8 @@
 <script>
 export default {
   name: 'Homecommend',
-  data: function () {
-   return {
-      commend: [
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_200x200_7690e4cd.jpg',
-          title: '北京欢乐谷',
-          desc: '北京欢乐谷有着许多好玩的场景游戏'
-        },
-        {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-          title: '故宫',
-          desc: '故宫有着许多好玩的场景游戏'
-        },
-        {
-          id: '003',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1803/7b/7b023b9728f0834fa3.img.jpg_200x200_5fddc1d8.jpg',
-          title: '世界花卉大观园',
-          desc: '世界花卉大观园有着许多好玩的场景游戏'
-        },
-        {
-          id: '004',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1804/c8/c88bb5e69c9a9c5ea3.img.jpg_200x200_740720ff.jpg',
-          title: '古北水镇',
-          desc: '古北水镇有着许多好玩的场景游戏'
-        },
-        {
-          id: '005',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1704/d6/d62a708bc69472f5a3.img.jpg_200x200_5193a3b6.jpg',
-          title: '十渡聚龙湾玻璃栈道',
-          desc: '十渡聚龙湾玻璃栈道有着许多好玩的场景游戏'
-        },
-        {
-          id: '006',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1602/68/68aa05adb5315f9990.water.jpg_200x200_ce3d2658.jpg',
-          title: '北京海洋馆',
-          desc: '北京海洋馆有着许多好玩的场景游戏'
-        }
-      ]
-    }
+  props:{
+    commendlist: Array
   }
 }
 </script>
