@@ -1,90 +1,77 @@
 <template>
-  <div class="list">
-    <div class="area">
-      <div class="title border-topbottom">当前城市</div>
-      <div class="button-list">
-        <div class="button-con">
-          <div class="button">北京</div>
+  <div class="list" ref="wrapper">
+    <div>
+      <div class="area">
+        <div class="title border-topbottom">当前城市</div>
+        <div class="button-list">
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">热门城市</div>
-      <div class="button-list">
-        <div class="button-con">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-con">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-con">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-con">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-con">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-con">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-con">
-          <div class="button">北京</div>
+      <div class="area">
+        <div class="title border-topbottom">热门城市</div>
+        <div class="button-list">
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-con">
+            <div class="button">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="city-list">
-        <ul>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-        </ul>
+      <div class="area">
+        <div class="title border-topbottom">A</div>
+        <div class="city-list">
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+        </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="city-list">
-        <ul>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-        </ul>
-      </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="city-list">
-        <ul>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-          <li class="city border-bottom">阿拉善</li>
-        </ul>
+      <div class="area">
+        <div class="title border-topbottom">A</div>
+        <div class="city-list">
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+          <div class="city border-bottom">阿拉善</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Bscroll from 'better-scroll'
 export default {
-  name: 'CityList'
+  name: 'CityList',
+  mounted: function () {
+    this.scroll = new Bscroll(this.$refs.wrapper)
+  }
 }
 </script>
 
@@ -95,12 +82,12 @@ export default {
     &:after
       border-color #000
   .list
+    overflow hidden
     position absolute
     top 4.4rem
     right 0
     bottom 0
     left 0
-    overflow hidden
     .title
       line-height 1.3rem
       width 100%
