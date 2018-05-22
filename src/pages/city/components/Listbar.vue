@@ -1,37 +1,60 @@
 <template>
   <ul class="list">
-    <li class="item">A</li>
-    <li class="item">B</li>
-    <li class="item">C</li>
-    <li class="item">D</li>
-    <li class="item">E</li>
-    <li class="item">F</li>
-    <li class="item">G</li>
-    <li class="item">H</li>
-    <li class="item">I</li>
-    <li class="item">G</li>
-    <li class="item">K</li>
-    <li class="item">L</li>
-    <li class="item">M</li>
-    <li class="item">N</li>
-    <li class="item">O</li>
-    <li class="item">P</li>   
-    <li class="item">Q</li>
-    <li class="item">R</li>
-    <li class="item">S</li>
-    <li class="item">T</li>
-    <li class="item">U</li>   
-    <li class="item">V</li>
-    <li class="item">W</li>
-    <li class="item">X</li>
-    <li class="item">Y</li>
-    <li class="item">Z</li>
+    <li class="item" v-for="item of letters" :key="item" :ref="item" v-text="item" @click="changeLeader" @touchstart="changeStart" @touchmove="changeMove" @touchend="changeEnd"></li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'CityListbar'
+  name: 'CityListbar',
+  props: {
+    cities: Object
+  },
+  data: function () {
+    return {
+      touchStatus: false,
+      isChoose: false,
+      startY: 0,
+      timer: null
+    }
+  },
+  computed: {
+    letters: function () {
+      const letters = []
+      for (let i in this.cities) {
+        letters.push(i)
+      }
+      return letters
+    }
+  },
+  updated: function () {
+    this.startY = this.$refs['A'][0].offsetTop
+  },
+  methods: {
+    changeLeader: function (e) {
+      this.$emit('change', e.target.innerText)
+    },
+    changeStart: function () {
+      this.touchStatus = true
+    },
+    changeMove: function (e) {
+      if (this.touchStatus) {
+        if (this.timer) {
+          clearTimeout(this.timer)
+        }
+        this.timer = setTimeout(() => {
+          const moveY = e.touches[0].clientY - 100
+          const index = Math.floor((moveY - this.startY) / 19.2)
+          if (index >= 0 && index < this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 20)
+      }
+    },
+    changeEnd: function () {
+      this.touchStatus = false
+    }
+  }
 }
 </script>
 
@@ -42,12 +65,18 @@ export default {
     flex-direction column
     justify-content center
     position absolute
-    top: 4.4rem
+    top: 5.3rem
     right 0
     bottom 0
     width 1.2rem
     .item
+      font-size .95rem
       text-align center
       line-height 1.1rem
+      color $bgColor
+    .choose
+      font-size 1rem
+      text-align center
+      line-height 1.3rem
       color $bgColor
 </style>

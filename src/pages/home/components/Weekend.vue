@@ -39,14 +39,14 @@ export default {
     background #eeeeee
   .title
     line-height 2rem
-    text-indent .2rem 
+    text-indent .2rem
     .title-love
       float left
       img
         position relative
-        top .2rem 
+        top .2rem
         width 1rem
-  .item      
+  .item
     .item-img-container
       overflow hidden
       width 100%

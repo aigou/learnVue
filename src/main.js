@@ -12,7 +12,7 @@ import 'styles/iconfont.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
-Vue.use(VueAwesomeSwiper,/* { default global options } */)
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({

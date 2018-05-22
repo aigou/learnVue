@@ -12,53 +12,15 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-con">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-con">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-con">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-con">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-con">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-con">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-con">
-            <div class="button">北京</div>
+          <div class="button-con" v-for="item of hotlist" :key="item.id">
+            <div class="button" v-text="item.name"></div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="city-list">
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="city-list">
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
-          <div class="city border-bottom">阿拉善</div>
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
+        <div class="title border-topbottom" v-text="key"></div>
+        <div class="city-list" v-for="initem of item" :key="initem.id">
+          <div class="city border-bottom" v-text="initem.name"></div>
         </div>
       </div>
     </div>
@@ -69,8 +31,21 @@
 import Bscroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    hotlist: Array,
+    cities: Object,
+    listHead: String
+  },
   mounted: function () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  watch: {
+    listHead: function () {
+      const element = this.$refs[this.listHead][0]
+      if (this.listHead) {
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
@@ -119,5 +94,5 @@ export default {
         line-height 1.2rem
         width 100%
         font-size .9rem
-        border-bottom .1rem solid  #eee 
+        border-bottom .1rem solid  #eee
 </style>

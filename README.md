@@ -1,6 +1,7 @@
-# yes
+# learn vue
 
->  a vue.js pro
+>  this is a vue study of qunar
+>  thanks imooc.com
 
 ## Build Setup
 

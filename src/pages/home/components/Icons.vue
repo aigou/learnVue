@@ -16,26 +16,26 @@
 
 <script>
 export default {
-  name:'HomeIcons',
+  name: 'HomeIcons',
   props: {
     iconlist: Array
   },
   data: function () {
     return {
       swiperOption: {
-        pagination: ".swiper-pagination"
+        pagination: '.swiper-pagination'
       }
     }
   },
   computed: {
     pages: function () {
       const pages = []
-      this.iconlist.forEach((item,index) => {
+      this.iconlist.forEach((item, index) => {
         const page = Math.floor(index / 8)
-        if(!pages[page]) {
-            pages[page] = []
+        if (!pages[page]) {
+          pages[page] = []
         }
-        pages[page].push(item) 
+        pages[page].push(item)
       })
       return pages
     }
@@ -47,9 +47,9 @@ export default {
   @import '~styles/varibles.styl';
   @import '~styles/mininx.styl';
   .icons >>> .swiper-pagination-bullet-active
-    background $bgColor 
+    background $bgColor
   .icons >>> .swiper-pagination-bullets
-    bottom -1px    
+    bottom -1px
   .icons >>> .swiper-container
     height 0;
     padding-bottom 50%;

@@ -26,33 +26,33 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl';
-.header
-  display: flex
-  line-height: 2.2rem
-  background: $bgColor
-  color: #fff
-  .header-left
-    width: 2.2rem
-    float: left
-    .back-icon
+  .header
+    display: flex
+    line-height: 2.2rem
+    background: $bgColor
+    color: #fff
+    .header-left
+      width: 2.2rem
+      float: left
+      .back-icon
+        text-align: center
+        font-size: 1.5rem
+    .header-input
+      flex: 1
+      margin-top: 0.3rem
+      margin-right: 0.4rem
+      height: 1.5rem
+      line-height: 1.5rem
+      padding-left: 0.4rem
+      background: #fff
+      border-radius: 0.3rem
+      color: #ccc
+    .header-right
+      width: 3rem
+      float: right
+      margin-right: 0.4rem
       text-align: center
-      font-size: 1.5rem
-  .header-input
-    flex: 1
-    margin-top: 0.3rem
-    margin-right: 0.4rem
-    height: 1.5rem
-    line-height: 1.5rem
-    padding-left: 0.4rem
-    background: #fff
-    border-radius: 0.3rem
-    color: #ccc
-  .header-right 
-    width: 3rem
-    float: right
-    margin-right: 0.4rem
-    text-align: center
-    color #fff
-    span
-      font-size: 1rem;
+      color #fff
+      span
+        font-size: 1rem
 </style>

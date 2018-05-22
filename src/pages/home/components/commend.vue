@@ -25,7 +25,7 @@
 <script>
 export default {
   name: 'Homecommend',
-  props:{
+  props: {
     commendlist: Array
   }
 }
@@ -43,7 +43,7 @@ export default {
       float left
       img
         position relative
-        top .2rem 
+        top .2rem
         width 1rem
   .item
     display flex

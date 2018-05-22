@@ -26,33 +26,33 @@ export default {
       weekendList: []
     }
   },
-  methods:{
+  methods: {
     getHomeInfo: function () {
       axios.get('/api/index.json')
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc: function (res) {
       res = res.data
-      if( res.ret && res.data){
-        const data = res.data 
+      if (res.ret && res.data) {
+        const data = res.data
         this.city = data.city
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.commendList = data.commendList
         this.weekendList = data.weekend_img
-      }  
+      }
     }
   },
   mounted: function () {
     this.getHomeInfo()
   },
-  components:{
+  components: {
     HomeHeader,
     HomeSwiper,
     HomeIcons,
     HomeCommend,
     HomeWeekend
-  },
+  }
 }
 </script>
 

@@ -34,7 +34,7 @@ export default {
       width: 2.2rem
       float: left
       .back-icon
-        color #fff 
+        color #fff
         text-align: center
         font-size: 1.5rem
     .header-title
