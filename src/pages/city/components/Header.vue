@@ -15,8 +15,8 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li v-for="item of list" class="search-list" v-text="item.name" :key="item.id"></li>
-        <li class="search-list" v-show="noData">没有匹配的城市</li>
+        <li v-for="item of list" class="search-list" v-text="item.name" :key="item.id" @click="handCityClick(item.name)"></li>
+        <li class="search-list" v-show="nolist">没有匹配的城市</li>
       </ul>
     </div>
   </div>
@@ -37,19 +37,10 @@ export default {
       nolist: false
     }
   },
-  computed: {
-    noData: {
-      get: function () {
-        return this.nolist
-      },
-      set: function () {
-        if (this.list.length === 0) {
-          this.nolist = true
-        } else {
-          this.nolist = false
-        }
-        return this.nolist
-      }
+  methods: {
+    handCityClick: function (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
     }
   },
   watch: {
@@ -67,6 +58,11 @@ export default {
           })
         }
         this.list = res
+        if (res.length === 0) {
+          this.nolist = true
+        } else {
+          this.nolist = false
+        }
       }, 100)
     }
   },
