@@ -24,6 +24,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CityHeader',
   props: {
@@ -39,9 +40,12 @@ export default {
   },
   methods: {
     handCityClick: function (city) {
-      this.$store.dispatch('changeCity', city)
+      this.chageCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations({
+      chageCity: 'changeCity'
+    })
   },
   watch: {
     keyword: function () {
