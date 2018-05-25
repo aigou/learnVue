@@ -44,6 +44,9 @@ export default {
   },
   activated: function () {
     window.addEventListener('scroll', this.handScroll)
+  },
+  deactivated: function () {
+    window.removeEventListener('scroll', this.handScroll)
   }
 }
 </script>
