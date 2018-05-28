@@ -31,7 +31,7 @@ export default {
     handScroll: function () {
       const distance = document.documentElement.scrollTop
       if (distance >= 130) {
-        let opacity = distance / 224
+        let opacity = distance / 184
         opacity = opacity > 1 ? 1 : opacity
         this.opacityTop = {
           opacity: opacity
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styles/varibles.styl';
+@import '~styles/varibles.styl'
   .header-round
     position absolute
     top .7rem
@@ -67,6 +67,7 @@ export default {
       color rgba(255,255,255,.7)
       font-size 1.5rem
   .header-fixed
+    z-index 2
     position fixed
     top 0
     left 0
